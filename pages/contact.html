@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Get in contact with Elisabeth Bertelmann. Send us a message or reach out by phone.">
+  <title>Contact — Elisabeth Bertelmann</title>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/interior.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <a href="../index.html">
+        <img src="../images/logo.png" alt="Elisabeth Bertelmann">
+      </a>
+    </div>
+    <ul class="nav__links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="book-appointment.html">Book Appointment</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav__instagram">
+      <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
+    </div>
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav__mobile-menu" role="dialog" aria-label="Navigation">
+    <a href="../index.html">Home</a>
+    <a href="book-appointment.html">Book Appointment</a>
+    <a href="explore.html">Explore</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="page contact-page">
+
+    <!-- Background image -->
+    <div class="contact-page__bg">
+      <img
+        src="https://static.wixstatic.com/media/9e8fd9_6b049ec63b18453eae63177f5631832bf000.jpg/v1/fill/w_1920,h_1080,al_c,q_85,enc_avif,quality_auto/9e8fd9_6b049ec63b18453eae63177f5631832bf000.jpg"
+        alt=""
+        role="presentation"
+        loading="eager"
+      >
+    </div>
+
+    <div class="contact-page__content">
+      <h1 class="interior-page__title">Get in Contact With Us</h1>
+      <p class="interior-page__subtitle" style="margin-bottom: 40px;">
+        If you have any questions, do not hesitate to reach out.
+      </p>
+
+      <form class="contact-form" action="mailto:info@elisabethbertelmann.com" method="post" enctype="text/plain" id="contact-form">
+
+        <div class="contact-form__field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="" autocomplete="name" required>
+        </div>
+
+        <div class="contact-form__field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="" autocomplete="email" required>
+        </div>
+
+        <div class="contact-form__field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="" required></textarea>
+        </div>
+
+        <button type="submit" class="contact-form__submit">Submit</button>
+
+      </form>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img src="../images/footer-monogram.avif" alt="EB" class="footer__monogram">
+    <div class="footer__info">
+      ELISABETH BERTELMANN<br>
+      Ronsdorfer Straße 75<br>
+      40233 Düsseldorf, Germany<br><br>
+      PHONE — <a href="tel:+4921198479792">+49 211 984 797 92</a><br>
+      <a href="mailto:info@elisabethbertelmann.com">INFO@ELISABETHBERTELMANN.COM</a>
+    </div>
+    <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener" class="footer__instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+      </svg>
+      @ELISABETHBERTELMANN
+    </a>
+    <div class="footer__legal">
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="imprint.html">Imprint</a>
+      <span>© 2026</span>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

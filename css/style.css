@@ -1,0 +1,344 @@
+/* ============================================
+   ELISABETH BERTELMANN — Main Stylesheet
+   ============================================ */
+
+@font-face {
+  font-family: 'WorkSans';
+  src: url('../fonts/WorkSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueHaasUnica';
+  src: url('../fonts/NeueHaasUnicaPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NeueHaasUnica';
+  src: url('../fonts/NeueHaasUnicaPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+
+:root {
+  --black: #000000;
+  --white: #FFFFFF;
+  --off-white: #F8F7F5;
+
+  --font-heading: 'WorkSans', sans-serif;
+  --font-body: 'NeueHaasUnica', sans-serif;
+
+  --nav-height: 72px;
+  --letter-spacing-wide: 0.18em;
+  --letter-spacing-nav: 0.12em;
+
+  --transition-fast: 0.2s ease;
+  --transition-med: 0.4s ease;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--black);
+  background-color: var(--white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  background-color: var(--white);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.nav.scrolled {
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav__logo img {
+  height: 14px;
+  width: auto;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav__links a {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: var(--letter-spacing-nav);
+  text-transform: uppercase;
+  color: var(--black);
+  transition: opacity var(--transition-fast);
+}
+
+.nav__links a:hover {
+  opacity: 0.5;
+}
+
+.nav__links a.active {
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 1px;
+}
+
+.nav__instagram {
+  display: flex;
+  align-items: center;
+}
+
+.nav__instagram a {
+  display: flex;
+  align-items: center;
+  transition: opacity var(--transition-fast);
+}
+
+.nav__instagram a:hover {
+  opacity: 0.5;
+}
+
+.nav__instagram svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Hamburger — mobile */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.nav__hamburger span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--black);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.nav__hamburger.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.nav__hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__hamburger.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile menu overlay */
+.nav__mobile-menu {
+  display: none;
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--white);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-med);
+}
+
+.nav__mobile-menu.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav__mobile-menu a {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: var(--letter-spacing-nav);
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 80px 40px 48px;
+  text-align: center;
+}
+
+.footer__monogram {
+  width: 120px;
+  height: auto;
+  margin: 0 auto 48px;
+  opacity: 0.9;
+}
+
+.footer__info {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  line-height: 2;
+  opacity: 0.7;
+  margin-bottom: 32px;
+}
+
+.footer__info a {
+  transition: opacity var(--transition-fast);
+}
+
+.footer__info a:hover {
+  opacity: 1;
+}
+
+.footer__instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 48px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+}
+
+.footer__instagram:hover {
+  opacity: 1;
+}
+
+.footer__instagram svg {
+  width: 14px;
+  height: 14px;
+}
+
+.footer__legal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  opacity: 0.45;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 24px;
+}
+
+.footer__legal a {
+  transition: opacity var(--transition-fast);
+}
+
+.footer__legal a:hover {
+  opacity: 1;
+}
+
+/* ============================================
+   PAGE WRAPPER
+   ============================================ */
+
+.page {
+  padding-top: var(--nav-height);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 24px;
+  }
+
+  .nav__links,
+  .nav__instagram {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+
+  .nav__mobile-menu {
+    display: flex;
+  }
+
+  .footer {
+    padding: 64px 24px 40px;
+  }
+
+  .footer__legal {
+    gap: 16px;
+  }
+}

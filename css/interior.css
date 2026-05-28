@@ -1,0 +1,251 @@
+/* ============================================
+   INTERIOR PAGES — Shared Styles
+   ============================================ */
+
+.interior-page {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.interior-page__content {
+  text-align: center;
+  padding: 80px 40px;
+  max-width: 640px;
+  width: 100%;
+}
+
+.interior-page__title {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(18px, 2.5vw, 26px);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.interior-page__subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.55);
+  margin-bottom: 64px;
+  line-height: 1.7;
+}
+
+/* ============================================
+   BOOK APPOINTMENT
+   ============================================ */
+
+.appointment-ctas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.appointment-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 36px 0;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.appointment-cta:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.appointment-cta__label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.appointment-cta__value {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--black);
+}
+
+.appointment-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   CONTACT PAGE
+   ============================================ */
+
+.contact-page {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-page__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.contact-page__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.contact-page__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.contact-page__content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 80px 40px;
+  max-width: 560px;
+  width: 100%;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  margin-top: 0;
+}
+
+.contact-form__field {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.contact-form__field label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  padding: 16px 0 4px;
+}
+
+.contact-form__field input,
+.contact-form__field textarea {
+  display: block;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  padding: 0 0 16px;
+  resize: none;
+  -webkit-appearance: none;
+}
+
+.contact-form__field textarea {
+  min-height: 100px;
+}
+
+.contact-form__submit {
+  margin-top: 40px;
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  border: none;
+  padding: 16px 48px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.contact-form__submit:hover {
+  opacity: 0.75;
+}
+
+/* ============================================
+   EXPLORE PAGE
+   ============================================ */
+
+.explore-page {
+  padding: 48px 0 0;
+}
+
+.explore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.explore-grid__item {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+
+.explore-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.6s ease;
+}
+
+.explore-grid__item:hover img {
+  transform: scale(1.02);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .interior-page__content {
+    padding: 60px 24px;
+  }
+
+  .contact-page__content {
+    padding: 60px 24px;
+  }
+
+  .explore-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .explore-grid__item {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .explore-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .explore-grid__item {
+    aspect-ratio: 3 / 4;
+  }
+}
