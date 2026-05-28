@@ -4,31 +4,47 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const nav = document.querySelector('.nav');
+  const nav = document.getElementById('nav');
   const hamburger = document.querySelector('.nav__hamburger');
   const mobileMenu = document.querySelector('.nav__mobile-menu');
 
-  // Scroll: add border to nav
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
+  // Hero height detection for transparent/white switching
+  const hero = document.querySelector('.section-hero');
+
+  function updateNav() {
+    const scrollY = window.scrollY;
+    const heroHeight = hero ? hero.offsetHeight : 0;
+
+    if (scrollY > 10) {
       nav.classList.add('scrolled');
+      nav.classList.remove('over-dark');
     } else {
       nav.classList.remove('scrolled');
+      // If hero exists, nav sits over it — use white text
+      if (hero) {
+        nav.classList.add('over-dark');
+      }
     }
-  }, { passive: true });
+  }
 
-  // Hamburger toggle
+  // Run on load
+  updateNav();
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+
+  // Hamburger
   if (hamburger && mobileMenu) {
     hamburger.addEventListener('click', () => {
       const isOpen = hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen);
       mobileMenu.classList.toggle('open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
-    // Close on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
         mobileMenu.classList.remove('open');
         document.body.style.overflow = '';
       });
@@ -39,10 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentPath = window.location.pathname;
   document.querySelectorAll('.nav__links a, .nav__mobile-menu a').forEach(link => {
     const href = link.getAttribute('href');
-    if (
-      (href === 'index.html' && (currentPath === '/' || currentPath.endsWith('index.html'))) ||
-      (href !== 'index.html' && currentPath.includes(href.replace('.html', '')))
-    ) {
+    if (!href) return;
+    const linkPage = href.replace('../', '').replace('.html', '');
+    const pathPage = currentPath.replace('.html', '');
+    if (pathPage.endsWith(linkPage) || (linkPage === 'index' && (pathPage === '/' || pathPage.endsWith('/')))) {
       link.classList.add('active');
     }
   });
