@@ -1,8 +1,20 @@
 /* ============================================
-   HOME PAGE — all sections 100vh
+   HOME PAGE
    ============================================ */
 
-/* Hero */
+/* ---- Shared section media (img + video) ---- */
+
+.section-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* ---- Hero ---- */
+
 .section-hero {
   position: relative;
   width: 100%;
@@ -10,60 +22,66 @@
   overflow: hidden;
 }
 
-.section-hero__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
+/* Full-screen wordmark — fixed, fades on scroll */
 .section-hero__wordmark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(280px, 38vw, 560px);
+  position: fixed;
+  top: 0;
+  /* mirror nav padding exactly — change this one value and nav stays in sync */
+  left: 40px;
+  right: 40px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
   pointer-events: none;
+  z-index: 10;
+  will-change: opacity;
 }
 
 .section-hero__wordmark img {
   width: 100%;
   height: auto;
-  filter: invert(1);
 }
 
-/* Split sections — two columns, 100vh each */
+/* ---- Split sections — 100vh ---- */
+
 .section-split {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 100vh;
+  overflow: hidden;
 }
 
 .section-split__col {
+  position: relative;
   overflow: hidden;
   height: 100%;
 }
 
-.section-split__col img {
+/* No zoom on hover — static */
+.section-split__col img,
+.section-split__col video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  transition: transform 0.7s ease;
 }
 
-.section-split__col:hover img {
-  transform: scale(1.03);
-}
+/* ---- Full-width section — 100vh ---- */
 
-/* Full-width section — 100vh */
 .section-full {
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 
-.section-full img {
+.section-full img,
+.section-full video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -74,20 +92,56 @@
    RESPONSIVE
    ============================================ */
 
-@media (max-width: 768px) {
-  .section-hero__wordmark {
-    width: clamp(200px, 70vw, 340px);
+@media (max-width: 599px) {
+  .section-hero {
+    height: 70vh;
   }
 
-  /* Stack split columns vertically on mobile,
-     each gets 50vh so combined = 100vh feel */
   .section-split {
-    grid-template-columns: 1fr;
-    height: auto;
+    grid-template-columns: 1fr 1fr;
+    height: 40vh;
   }
 
   .section-split__col {
-    height: 60vw;
-    min-height: 280px;
+    position: relative;
   }
+
+  .section-full {
+    height: 70vh;
+  }
+
+  .section-hero__wordmark {
+    height: 70vh;
+    left: 24px;
+    right: 24px;
+  }
+}
+
+/* ============================================
+   TABLET — 768px to 1024px
+   ============================================ */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+
+  .section-hero {
+    height: 60vh;
+  }
+
+  /* Split: side by side, 60vh total */
+  .section-split {
+    height: 60vh;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section-full {
+    height: 60vh;
+  }
+
+  /* Wordmark: centered within 60vh hero, aligned with nav */
+  .section-hero__wordmark {
+    height: 60vh;
+    left: 30px;
+    right: 30px;
+  }
+
 }

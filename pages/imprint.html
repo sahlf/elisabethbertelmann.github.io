@@ -3,39 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Imprint — Elisabeth Bertelmann">
   <title>Imprint — Elisabeth Bertelmann</title>
   <link rel="icon" type="image/png" href="../images/favicon.png">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/interior.css">
   <style>
-    .legal-content { max-width: 720px; margin: 0 auto; padding: 80px 40px; }
-    .legal-content h1 { font-family: var(--font-body); font-weight: 400; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 48px; }
-    .legal-content p { font-size: 13px; line-height: 1.8; color: rgba(0,0,0,0.6); margin-bottom: 16px; }
+    body { background: #000; }
+    .nav { background: transparent !important; }
+
+    .legal-page {
+      padding: calc(var(--nav-height) + 80px) 10vw 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .legal-page h1 {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(18px, 2vw, 26px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 48px;
+    }
+
+    .legal-page h2 {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin: 36px 0 12px;
+    }
+
+    .legal-page p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 6px;
+    }
+
+    .legal-page a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .legal-page a:hover { color: #fff; }
+
+    .legal-page .divider {
+      margin: 40px 0;
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
   </style>
 </head>
 <body>
+
   <nav class="nav" id="nav">
-    <div class="nav__logo"><a href="../index.html"><img src="../images/logo.png" alt="Elisabeth Bertelmann"></a></div>
+    <div class="nav__logo">
+      <a href="../index.html"><img src="../images/logo.svg" alt="Elisabeth Bertelmann"></a>
+    </div>
     <ul class="nav__links">
-      <li><a href="../index.html">Home</a></li>
       <li><a href="book-appointment.html">Book Appointment</a></li>
       <li><a href="explore.html">Explore</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav__instagram"><a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a></div>
-    <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
-  <div class="nav__mobile-menu">
-    <a href="../index.html">Home</a><a href="book-appointment.html">Book Appointment</a><a href="explore.html">Explore</a><a href="contact.html">Contact</a>
+
+  <div class="nav__mobile-menu" role="dialog" aria-label="Navigation">
+    <a href="book-appointment.html">Book Appointment</a>
+    <a href="explore.html">Explore</a>
+    <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener">Instagram</a>
+    <a href="contact.html">Contact</a>
   </div>
-  <main class="page">
-    <div class="legal-content">
+
+  <main>
+    <div class="legal-page">
+
       <h1>Imprint</h1>
-      <p>This page is a placeholder. Please add the relevant legal content here.</p>
+
+      <p>Studio Elisabeth Bertelmann</p>
+      <p>Ronsdorfer Strasse 75</p>
+      <p>40233 Düsseldorf</p>
+      <p>Germany</p>
+
+      <hr class="divider">
+
+      <p>Phone: <a href="tel:+4921198479792">+49 211 984 797 92</a></p>
+      <p>Fax: <a href="tel:+4921198479796">+49 211 984 797 96</a></p>
+      <p>Email: <a href="mailto:info@elisabethbertelmann.com">info@elisabethbertelmann.com</a></p>
+
+      <hr class="divider">
+
+      <p>Sales tax identification number according to § 27 a sales tax law: DE258513037</p>
+
+      <p>Platform of the EU commission for online dispute resolution: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a></p>
+
+      <p>We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+
+      <p>Member of the initiative "Fairness in trade". Further information: <a href="https://www.fairness-im-handel.de" target="_blank" rel="noopener">www.fairness-im-handel.de</a></p>
+
+      <hr class="divider">
+
+      <p>Concept &amp; Design Website: Julia Wortmann-Schulz / <a href="https://www.juliawortmann.com/" target="_blank" rel="noopener">juliawortmann:design</a></p>
+      <p>Copywriting Website: Samantha Van Camp</p>
+
     </div>
   </main>
+
   <footer class="footer">
-    <img src="../images/footer-monogram.avif" alt="EB" class="footer__monogram">
+    <div class="footer__monogram">
+      <img src="../images/footer-monogram.avif" alt="EB">
+    </div>
+    <div class="footer__info">
+      <div class="footer__info-left">
+        <p>ELISABETH BERTELMANN</p>
+        <p>RONSDORFER STRASSE 75</p>
+        <p>40233 DÜSSELDORF, GERMANY</p>
+        <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener" class="footer__instagram-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+      <div class="footer__info-right">
+        <p>&nbsp;</p>
+        <a href="tel:+4921198479792">PHONE: + 49 211 984 797 92</a>
+        <a href="tel:+4921198479796">FAX: +49 211 984 797 96</a>
+        <a href="mailto:info@elisabethbertelmann.com">INFO@ELISABETHBERTELMANN.COM</a>
+        <p>PRESS INQUIRIES:</p>
+        <a href="mailto:press@elisabethbertelmann.com">PRESS@ELISABETHBERTELMANN.COM</a>
+      </div>
+    </div>
     <div class="footer__legal">
       <a href="terms.html">Terms &amp; Conditions</a>
       <a href="privacy.html">Privacy Policy</a>
@@ -43,6 +149,7 @@
       <span>© 2026</span>
     </div>
   </footer>
+
   <script src="../js/nav.js"></script>
 </body>
 </html>

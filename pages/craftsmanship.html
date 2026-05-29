@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Craftsmanship — Elisabeth Bertelmann">
+  <title>Craftsmanship — Elisabeth Bertelmann</title>
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body { background: #000; }
+    .nav { background: transparent !important; }
+
+    /*
+      Layout: two independent columns via CSS Grid.
+      Left col: text block, natural height, sits at bottom via padding
+      Right col: 2x2 image grid, fixed 4:5 cells
+      The row height = image grid height; left col fills that with flex
+    */
+
+    .craft-hero {
+      display: grid;
+      grid-template-columns: 45fr 55fr;
+      align-items: start;
+    }
+
+    /* ---- LEFT: sticky, full viewport height, text at bottom ---- */
+    .craft-hero__text {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      background: #000;
+      padding: var(--nav-height) 64px 64px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      /* Scroll overflow hidden so text never clips out of the sticky box */
+      overflow: hidden;
+    }
+
+    .craft-hero__title {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(16px, 1.8vw, 24px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 32px;
+    }
+
+    .craft-hero__body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 1.85;
+      letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .craft-hero__body p + p {
+      margin-top: 20px;
+    }
+
+    /* ---- RIGHT: 2x2 image grid, 4:5 per cell ---- */
+    .craft-hero__images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .craft-hero__images .img-cell {
+      /* 4:5 aspect ratio */
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+
+    .craft-hero__images .img-cell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      .craft-hero {
+        grid-template-columns: 1fr;
+      }
+      .craft-hero__text {
+        padding: calc(var(--nav-height) + 40px) 24px 48px;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <a href="../index.html">
+        <img src="../images/logo.svg" alt="Elisabeth Bertelmann">
+      </a>
+    </div>
+    <ul class="nav__links">
+      <li><a href="book-appointment.html">Book Appointment</a></li>
+      <li><a href="explore.html">Explore</a></li>
+      <li><a href="craftsmanship.html" class="active">Craftsmanship</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile-menu" role="dialog" aria-label="Navigation">
+    <a href="book-appointment.html">Book Appointment</a>
+    <a href="explore.html">Explore</a>
+    <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener">Instagram</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main>
+    <div class="craft-hero">
+
+      <!-- LEFT: text -->
+      <div class="craft-hero__text">
+        <h1 class="craft-hero__title">Craftsmanship</h1>
+        <div class="craft-hero__body">
+          <p>From the very beginning, the focus on traditional couture and craftsmanship has been a primary focus when creating each piece. It is this reflection and an appreciation for craft that is reinterpreted with each idea step-by-step. A slow transformation is formed into tangible pieces by hand while bringing new life into ancient techniques that can be cherished and worn for years. Each piece is specially crafted from only the finest natural fabrics such as silk and combine the inspiration of traditional weaving and crochet techniques.</p>
+          <p>With a meticulous attention to detail, each piece blends the softness of tailoring with a muted coloured palette that is familiarised by the brands contemporary resonance on luxury ready-to-wear and custom-made clothing.</p>
+        </div>
+      </div>
+
+      <!-- RIGHT: 2x2 images -->
+      <div class="craft-hero__images">
+        <div class="img-cell">
+          <img src="https://static.wixstatic.com/media/9e8fd9_ba5c94767fb64307821470213f81ba83~mv2.jpg/v1/fill/w_720,h_900,al_c,q_85,enc_avif,quality_auto/9e8fd9_ba5c94767fb64307821470213f81ba83~mv2.jpg" alt="" loading="eager">
+        </div>
+        <div class="img-cell">
+          <img src="https://static.wixstatic.com/media/9e8fd9_2586fec621294b4c8e2f9d188e1a98a2~mv2.png/v1/fill/w_720,h_900,al_c,q_85,enc_avif,quality_auto/9e8fd9_2586fec621294b4c8e2f9d188e1a98a2~mv2.png" alt="" loading="eager">
+        </div>
+        <div class="img-cell">
+          <img src="https://static.wixstatic.com/media/9e8fd9_6326fa17130b4487a217da2744c3b52d~mv2.jpg/v1/fill/w_720,h_900,al_c,q_85,enc_avif,quality_auto/9e8fd9_6326fa17130b4487a217da2744c3b52d~mv2.jpg" alt="" loading="lazy">
+        </div>
+        <div class="img-cell">
+          <img src="https://static.wixstatic.com/media/9e8fd9_2bb7e46b9dd942ebadcd6088448dfed4f000.jpg/v1/fill/w_720,h_900,al_c,q_85,enc_avif,quality_auto/9e8fd9_2bb7e46b9dd942ebadcd6088448dfed4f000.jpg" alt="" loading="lazy">
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__monogram">
+      <img src="../images/footer-monogram.avif" alt="EB">
+    </div>
+    <div class="footer__info">
+      <div class="footer__info-left">
+        <p>ELISABETH BERTELMANN</p>
+        <p>RONSDORFER STRASSE 75</p>
+        <p>40233 DÜSSELDORF, GERMANY</p>
+        <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener" class="footer__instagram-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+      <div class="footer__info-right">
+        <p>&nbsp;</p>
+        <a href="tel:+4921198479792">PHONE: + 49 211 984 797 92</a>
+        <a href="tel:+4921198479796">FAX: +49 211 984 797 96</a>
+        <a href="mailto:info@elisabethbertelmann.com">INFO@ELISABETHBERTELMANN.COM</a>
+        <p>PRESS INQUIRIES:</p>
+        <a href="mailto:press@elisabethbertelmann.com">PRESS@ELISABETHBERTELMANN.COM</a>
+      </div>
+    </div>
+    <div class="footer__legal">
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="imprint.html">Imprint</a>
+      <span>© 2026</span>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+</body>
+</html>

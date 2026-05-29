@@ -7,116 +7,181 @@
   <title>Explore — Elisabeth Bertelmann</title>
   <link rel="icon" type="image/png" href="../images/favicon.png">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/interior.css">
+  <style>
+    body { background: #000; }
+    .nav { background: transparent !important; }
+
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(5, calc(25vw * 5 / 4));
+    }
+
+    .explore-grid__cell {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .explore-grid__cell--img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .explore-grid__cell--black {
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .explore-grid__cell--black.clickable {
+      cursor: pointer;
+    }
+
+    .explore-grid__cell--black.clickable:hover .cell-label,
+    .explore-grid__cell--black.clickable:hover .cell-icon {
+      opacity: 0.5;
+    }
+
+    .cell-label {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(18px, 2vw, 32px);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      transition: opacity 0.2s ease;
+    }
+
+    .cell-icon {
+      color: #fff;
+      transition: opacity 0.2s ease;
+    }
+
+    .cell-icon svg {
+      width: clamp(40px, 5vw, 64px);
+      height: clamp(40px, 5vw, 64px);
+    }
+
+    @media (max-width: 599px) {
+      .explore-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: none;
+      }
+
+      .explore-grid__cell {
+        aspect-ratio: 4 / 5;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAVIGATION -->
   <nav class="nav" id="nav">
     <div class="nav__logo">
-      <a href="../index.html">
-        <img src="../images/logo.png" alt="Elisabeth Bertelmann">
-      </a>
+      <a href="../index.html"><img src="../images/logo.svg" alt="Elisabeth Bertelmann"></a>
     </div>
     <ul class="nav__links">
-      
       <li><a href="book-appointment.html">Book Appointment</a></li>
       <li><a href="explore.html" class="active">Explore</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav__instagram">
-      <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>
-    </div>
     <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- MOBILE MENU -->
   <div class="nav__mobile-menu" role="dialog" aria-label="Navigation">
-    
     <a href="book-appointment.html">Book Appointment</a>
     <a href="explore.html">Explore</a>
-    <a href="contact.html">Contact</a>
     <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener">Instagram</a>
+    <a href="contact.html">Contact</a>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <main class="page explore-page">
-
+  <main>
     <div class="explore-grid">
-
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_1bc94b187af8493b8effe5290714988a~mv2.jpg/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_1bc94b187af8493b8effe5290714988a~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
+      <!-- ROW 1 -->
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_1bc94b187af8493b8effe5290714988a~mv2.jpg/v1/fill/w_720,h_900,al_c,q_90,enc_avif,quality_auto/9e8fd9_1bc94b187af8493b8effe5290714988a~mv2.jpg" alt="" loading="eager">
       </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_bc6c1babf4524c2fb6c4593b5e48cf9d~mv2.jpg/v1/fill/w_960,h_1280,fp_0.47_0.11,q_90,enc_avif,quality_auto/9e8fd9_bc6c1babf4524c2fb6c4593b5e48cf9d~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_bc6c1babf4524c2fb6c4593b5e48cf9d~mv2.jpg/v1/fill/w_720,h_900,fp_0.47_0.11,q_90,enc_avif,quality_auto/9e8fd9_bc6c1babf4524c2fb6c4593b5e48cf9d~mv2.jpg" alt="" loading="eager">
       </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_6d4f52082b174bf19e9242cf9cc56846~mv2.png/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_6d4f52082b174bf19e9242cf9cc56846~mv2.png" alt="Elisabeth Bertelmann" loading="lazy">
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_6d4f52082b174bf19e9242cf9cc56846~mv2.png/v1/fill/w_720,h_900,al_c,q_90,enc_avif,quality_auto/9e8fd9_6d4f52082b174bf19e9242cf9cc56846~mv2.png" alt="" loading="eager">
       </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_6320ebc0af12416a8d500dc96273cad0~mv2.jpg/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_6320ebc0af12416a8d500dc96273cad0~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_1529aea38c724331bdb20c719c3ae7f4~mv2.jpg/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_1529aea38c724331bdb20c719c3ae7f4~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_555a98c1e5c743e4b6c52f562a9617b1~mv2.jpg/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_555a98c1e5c743e4b6c52f562a9617b1~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_916b538569e14d3c84bfff82d8969e8a~mv2.jpg/v1/fill/w_960,h_1280,fp_0.42_0.1,q_90,enc_avif,quality_auto/9e8fd9_916b538569e14d3c84bfff82d8969e8a~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_9dc2a05038f4456ab1d11fcd424522d7~mv2.png/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_9dc2a05038f4456ab1d11fcd424522d7~mv2.png" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_7219898f5989465fa210d1bec7a5e689~mv2.png/v1/fill/w_960,h_1280,fp_0.5_0.3,q_90,enc_avif,quality_auto/9e8fd9_7219898f5989465fa210d1bec7a5e689~mv2.png" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_5ba3d2dbb8584d20aa21f75907d54371~mv2.jpg/v1/fill/w_960,h_1280,fp_0.53_0.08,q_90,enc_avif,quality_auto/9e8fd9_5ba3d2dbb8584d20aa21f75907d54371~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_3a3dcacc2ef74c269ef6c3c56e011e7b~mv2.png/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_3a3dcacc2ef74c269ef6c3c56e011e7b~mv2.png" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/00da07_d9e67dc7f10343238e575526d9385f70~mv2.jpg/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/00da07_d9e67dc7f10343238e575526d9385f70~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_2839b43d19b04e2bb8a3c62383b18af7~mv2.png/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_2839b43d19b04e2bb8a3c62383b18af7~mv2.png" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_30ea452114a84585b1d2ab18e03ebc66~mv2.jpg/v1/fill/w_960,h_1280,fp_0.52_0.13,q_90,enc_avif,quality_auto/9e8fd9_30ea452114a84585b1d2ab18e03ebc66~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_c978632a1cd04d54ae2f0e2546328a48~mv2.jpg/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_c978632a1cd04d54ae2f0e2546328a48~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_5fb1ee30e5a34938bacc2684f2b486db~mv2.png/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_5fb1ee30e5a34938bacc2684f2b486db~mv2.png" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_82b37b8421b644ca972523d332ad946f~mv2.png/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_82b37b8421b644ca972523d332ad946f~mv2.png" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_ff87c353b28c4c9e8ce40a9130a410c5~mv2.png/v1/fill/w_960,h_1280,fp_0.57_0.19,q_90,enc_avif,quality_auto/9e8fd9_ff87c353b28c4c9e8ce40a9130a410c5~mv2.png" alt="Elisabeth Bertelmann" loading="lazy">
-      </div>
-      <div class="explore-grid__item">
-        <img src="https://static.wixstatic.com/media/9e8fd9_d2311aee077449cdb2e654639857cb00~mv2.jpg/v1/fit/w_960,h_1280,q_90,enc_avif,quality_auto/9e8fd9_d2311aee077449cdb2e654639857cb00~mv2.jpg" alt="Elisabeth Bertelmann" loading="lazy">
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_6320ebc0af12416a8d500dc96273cad0~mv2.jpg/v1/fill/w_720,h_900,al_c,q_90,enc_avif,quality_auto/9e8fd9_6320ebc0af12416a8d500dc96273cad0~mv2.jpg" alt="" loading="lazy">
       </div>
 
-    </div>
+      <!-- ROW 2: Studio -->
+      <div class="explore-grid__cell explore-grid__cell--black clickable" onclick="window.location.href='studio.html'">
+        <span class="cell-label">Studio</span>
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_555a98c1e5c743e4b6c52f562a9617b1~mv2.jpg/v1/fill/w_720,h_900,al_c,q_90,enc_avif,quality_auto/9e8fd9_555a98c1e5c743e4b6c52f562a9617b1~mv2.jpg" alt="" loading="lazy">
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_916b538569e14d3c84bfff82d8969e8a~mv2.jpg/v1/fill/w_720,h_900,fp_0.42_0.1,q_90,enc_avif,quality_auto/9e8fd9_916b538569e14d3c84bfff82d8969e8a~mv2.jpg" alt="" loading="lazy">
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_9dc2a05038f4456ab1d11fcd424522d7~mv2.png/v1/fill/w_720,h_900,al_c,q_90,enc_avif,quality_auto/9e8fd9_9dc2a05038f4456ab1d11fcd424522d7~mv2.png" alt="" loading="lazy">
+      </div>
 
+      <!-- ROW 3: Portrait | Paisley | Instagram | Paisley -->
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_7219898f5989465fa210d1bec7a5e689~mv2.png/v1/fill/w_720,h_900,fp_0.5_0.3,q_90,enc_avif,quality_auto/9e8fd9_7219898f5989465fa210d1bec7a5e689~mv2.png" alt="" loading="lazy">
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_5ba3d2dbb8584d20aa21f75907d54371~mv2.jpg/v1/fill/w_720,h_900,fp_0.53_0.08,q_90,enc_avif,quality_auto/9e8fd9_5ba3d2dbb8584d20aa21f75907d54371~mv2.jpg" alt="" loading="lazy">
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--black clickable" onclick="window.open('https://www.instagram.com/elisabethbertelmann/','_blank')">
+        <span class="cell-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </span>
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="../images/explore-r3col4.jpg" alt="" loading="lazy">
+      </div>
+
+      <!-- ROW 4: Craftsmanship | White jacket | Brown jacket | Pattern | r5_1 -->
+      <div class="explore-grid__cell explore-grid__cell--black clickable" onclick="window.location.href='craftsmanship.html'">
+        <span class="cell-label">Craftsmanship</span>
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_2839b43d19b04e2bb8a3c62383b18af7~mv2.png/v1/fill/w_720,h_900,al_c,q_90,enc_avif,quality_auto/9e8fd9_2839b43d19b04e2bb8a3c62383b18af7~mv2.png" alt="" loading="lazy">
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_30ea452114a84585b1d2ab18e03ebc66~mv2.jpg/v1/fill/w_720,h_900,fp_0.52_0.13,q_90,enc_avif,quality_auto/9e8fd9_30ea452114a84585b1d2ab18e03ebc66~mv2.jpg" alt="" loading="lazy">
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_c978632a1cd04d54ae2f0e2546328a48~mv2.jpg/v1/fill/w_720,h_900,al_c,q_90,enc_avif,quality_auto/9e8fd9_c978632a1cd04d54ae2f0e2546328a48~mv2.jpg" alt="" loading="lazy">
+      </div>
+
+      <!-- ROW 5: r5_2 | r5_3 | r5_4 | black ruffled collar (placeholder) -->
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_5fb1ee30e5a34938bacc2684f2b486db~mv2.png/v1/fill/w_720,h_900,al_c,q_90,enc_avif,quality_auto/9e8fd9_5fb1ee30e5a34938bacc2684f2b486db~mv2.png" alt="" loading="lazy">
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_82b37b8421b644ca972523d332ad946f~mv2.png/v1/fill/w_720,h_900,al_c,q_90,enc_avif,quality_auto/9e8fd9_82b37b8421b644ca972523d332ad946f~mv2.png" alt="" loading="lazy">
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="https://static.wixstatic.com/media/9e8fd9_ff87c353b28c4c9e8ce40a9130a410c5~mv2.png/v1/fill/w_720,h_900,fp_0.57_0.19,q_90,enc_avif,quality_auto/9e8fd9_ff87c353b28c4c9e8ce40a9130a410c5~mv2.png" alt="" loading="lazy">
+      </div>
+      <div class="explore-grid__cell explore-grid__cell--img">
+        <img src="../images/explore-r5col4.jpg" alt="" loading="lazy">
+      </div>
+</div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__monogram">
       <img src="../images/footer-monogram.avif" alt="EB">
@@ -135,8 +200,9 @@
         </a>
       </div>
       <div class="footer__info-right">
-        <p>PHONE: + 49 211 984 797 92</p>
-        <p>FAX: +49 211 984 797 96</p>
+        <p>&nbsp;</p>
+        <a href="tel:+4921198479792">PHONE: + 49 211 984 797 92</a>
+        <a href="tel:+4921198479796">FAX: +49 211 984 797 96</a>
         <a href="mailto:info@elisabethbertelmann.com">INFO@ELISABETHBERTELMANN.COM</a>
         <p>PRESS INQUIRIES:</p>
         <a href="mailto:press@elisabethbertelmann.com">PRESS@ELISABETHBERTELMANN.COM</a>
@@ -152,4 +218,16 @@
 
   <script src="../js/nav.js"></script>
 </body>
-</html>
+</html><style>
+@media (max-width: 599px) {
+  .explore-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+  }
+
+  .explore-grid__cell {
+    aspect-ratio: 4 / 5;
+    height: auto;
+  }
+}
+</style

@@ -3,11 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Book your personal appointment at Studio Elisabeth Bertelmann. Visit us for ready to wear or custom made pieces.">
+  <meta name="description" content="Book your personal appointment at Studio Elisabeth Bertelmann.">
   <title>Book Appointment — Elisabeth Bertelmann</title>
   <link rel="icon" type="image/png" href="../images/favicon.png">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/interior.css">
+  <style>
+    body { background: #000; }
+    .nav { background: transparent !important; }
+
+    .book-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 40px;
+    }
+
+    .book-page__content {
+      text-align: left;
+    }
+
+    .book-page__title {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(16px, 2vw, 22px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .book-page__text {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+      line-height: 1.8;
+      color: #fff;
+    }
+
+    .book-page__text a {
+      color: #fff;
+      font-weight: 700;
+      transition: opacity 0.2s ease;
+    }
+
+    .book-page__text a:hover {
+      opacity: 0.6;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,60 +59,36 @@
   <nav class="nav" id="nav">
     <div class="nav__logo">
       <a href="../index.html">
-        <img src="../images/logo.png" alt="Elisabeth Bertelmann">
+        <img src="../images/logo.svg" alt="Elisabeth Bertelmann">
       </a>
     </div>
     <ul class="nav__links">
-      
       <li><a href="book-appointment.html" class="active">Book Appointment</a></li>
       <li><a href="explore.html">Explore</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav__instagram">
-      <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>
-    </div>
     <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- MOBILE MENU -->
   <div class="nav__mobile-menu" role="dialog" aria-label="Navigation">
-    
     <a href="book-appointment.html">Book Appointment</a>
     <a href="explore.html">Explore</a>
-    <a href="contact.html">Contact</a>
     <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener">Instagram</a>
+    <a href="contact.html">Contact</a>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <main class="page interior-page">
-
-    <div class="interior-page__content">
-      <h1 class="interior-page__title">Book Your Appointment</h1>
-      <p class="interior-page__subtitle">Visit our Studio for ready to wear or custom made pieces.</p>
-
-      <div class="appointment-ctas">
-        <a href="mailto:info@elisabethbertelmann.com" class="appointment-cta">
-          <span class="appointment-cta__label">Email</span>
-          <span class="appointment-cta__value">info@elisabethbertelmann.com</span>
-        </a>
-        <div class="appointment-divider"></div>
-        <a href="tel:+4921198479792" class="appointment-cta">
-          <span class="appointment-cta__label">Phone</span>
-          <span class="appointment-cta__value">+49 211 984 797 92</span>
-        </a>
-      </div>
+  <!-- CONTENT -->
+  <main class="book-page">
+    <div class="book-page__content">
+      <h1 class="book-page__title">Book Your Appointment</h1>
+      <p class="book-page__text">
+        Visit our Studio for ready to wear or custom made pieces.<br>
+        Please send a message via <a href="mailto:info@elisabethbertelmann.com">info@elisabethbertelmann.com</a> or call us: <a href="tel:+4921198479792">+ 49 211 984 797 92</a>
+      </p>
     </div>
-
   </main>
 
   <!-- FOOTER -->
@@ -90,8 +110,9 @@
         </a>
       </div>
       <div class="footer__info-right">
-        <p>PHONE: + 49 211 984 797 92</p>
-        <p>FAX: +49 211 984 797 96</p>
+        <p>&nbsp;</p>
+        <a href="tel:+4921198479792">PHONE: + 49 211 984 797 92</a>
+        <a href="tel:+4921198479796">FAX: +49 211 984 797 96</a>
         <a href="mailto:info@elisabethbertelmann.com">INFO@ELISABETHBERTELMANN.COM</a>
         <p>PRESS INQUIRIES:</p>
         <a href="mailto:press@elisabethbertelmann.com">PRESS@ELISABETHBERTELMANN.COM</a>

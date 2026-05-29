@@ -3,39 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms &amp; Conditions — Elisabeth Bertelmann</title>
+  <meta name="description" content="Terms & Conditions — Elisabeth Bertelmann">
+  <title>Terms & Conditions — Elisabeth Bertelmann</title>
   <link rel="icon" type="image/png" href="../images/favicon.png">
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/interior.css">
   <style>
-    .legal-content { max-width: 720px; margin: 0 auto; padding: 80px 40px; }
-    .legal-content h1 { font-family: var(--font-body); font-weight: 400; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 48px; }
-    .legal-content p { font-size: 13px; line-height: 1.8; color: rgba(0,0,0,0.6); margin-bottom: 16px; }
+    body { background: #000; }
+    .nav { background: transparent !important; }
+
+    .legal-page {
+      padding: calc(var(--nav-height) + 80px) 10vw 100px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .legal-page h1 {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(18px, 2vw, 26px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 48px;
+    }
+
+    .legal-page .subtitle {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 40px;
+      line-height: 1.4;
+    }
+
+    .legal-page h2 {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin: 36px 0 12px;
+    }
+
+    .legal-page p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 12px;
+    }
+
+    .legal-page ol {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.65);
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    .legal-page a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .legal-page a:hover {
+      color: #fff;
+    }
+
+    .toc {
+      margin-bottom: 48px;
+    }
+
+    .toc p {
+      margin-bottom: 0;
+    }
   </style>
 </head>
 <body>
+
   <nav class="nav" id="nav">
-    <div class="nav__logo"><a href="../index.html"><img src="../images/logo.png" alt="Elisabeth Bertelmann"></a></div>
+    <div class="nav__logo">
+      <a href="../index.html"><img src="../images/logo.svg" alt="Elisabeth Bertelmann"></a>
+    </div>
     <ul class="nav__links">
-      <li><a href="../index.html">Home</a></li>
       <li><a href="book-appointment.html">Book Appointment</a></li>
       <li><a href="explore.html">Explore</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav__instagram"><a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg></a></div>
-    <button class="nav__hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
-  <div class="nav__mobile-menu">
-    <a href="../index.html">Home</a><a href="book-appointment.html">Book Appointment</a><a href="explore.html">Explore</a><a href="contact.html">Contact</a>
+
+  <div class="nav__mobile-menu" role="dialog" aria-label="Navigation">
+    <a href="book-appointment.html">Book Appointment</a>
+    <a href="explore.html">Explore</a>
+    <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener">Instagram</a>
+    <a href="contact.html">Contact</a>
   </div>
-  <main class="page">
-    <div class="legal-content">
+
+  <main>
+    <div class="legal-page">
+
       <h1>Terms &amp; Conditions</h1>
-      <p>This page is a placeholder. Please add the relevant legal content here.</p>
+
+      <p class="subtitle">General Terms and Conditions of Studio Elisabeth Bertelmann as of March 2023</p>
+
+      <p>General Terms and Conditions</p>
+
+      <div class="toc">
+        <p>Table of Contents</p>
+        <ol>
+          <li>Scope of Application</li>
+          <li>Conclusion of the Contract</li>
+          <li>Right to Cancel</li>
+          <li>Prices and Payment Conditions</li>
+          <li>Shipment and Delivery Conditions</li>
+          <li>Reservation of Proprietary Rights</li>
+          <li>Warranty</li>
+          <li>Special Conditions for Repair Services</li>
+          <li>Applicable Law</li>
+          <li>Alternative dispute resolution</li>
+        </ol>
+      </div>
+
+      <h2>1) Scope of Application</h2>
+      <p>1.1 These General Terms and Conditions (hereinafter referred to as "GTC") of the company STUDIO Elisabeth Bertelmann — Studio Elisabeth Bertelmann (hereinafter referred to as "Seller") shall apply to all contracts concluded between a consumer or a trader (hereinafter referred to as "Client") and the Seller relating to all goods and/or services presented in the Seller's online shop. The inclusion of the Client's own conditions is herewith objected to, unless other terms have been stipulated.</p>
+      <p>1.2 A consumer pursuant to these GTC is any natural person concluding a legal transaction for a purpose attributed neither to a mainly commercial nor a self-employed occupational activity.</p>
+      <p>1.3 A trader pursuant to these GTC is a natural or legal person or a partnership with legal capacity who, when concluding a legal transaction, acts in the exercise of his commercial or independent professional activity.</p>
+
+      <h2>2) Conclusion of the Contract</h2>
+      <p>2.1 The product descriptions in the Seller's online shop do not constitute binding offers on the part of the Seller, but merely serve the purpose of submitting a binding offer by the Client.</p>
+      <p>2.2 The Client may submit the offer via the online order form integrated into the Seller's online shop. In doing so, after having placed the selected goods and/or services in the virtual basket and passed through the ordering process, and by clicking the button finalizing the order process, the Client submits a legally binding offer of contract with regard to the goods and/or services contained in the shopping cart. The Client may also submit his offer to the Seller by e-mail, per online contact form or telephone.</p>
+      <p>2.3 The Seller may accept the Client's offer within five days, by transferring a written order confirmation or an order confirmation in written form (fax or e-mail); insofar receipt of order confirmation by the Client is decisive, or by delivering ordered goods to the Client; insofar receipt of goods by the Client is decisive, or by requesting the Client to pay after he placed his order. Provided that several of the aforementioned alternatives apply, the contract shall be concluded at the time when one of the aforementioned alternatives firstly occurs. Should the Seller not accept the Client's offer within the aforementioned period of time, this shall be deemed as rejecting the offer with the effect that the Client is no longer bound by his statement of intent.</p>
+      <p>2.4 If a payment method offered by PayPal is selected, the payment will be processed by the payment service provider PayPal (Europe) S.à r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg (hereinafter referred to as "PayPal"), subject to the PayPal Terms of Use, or, if the Client does not have a PayPal account, subject to the Terms for payments without a PayPal account.</p>
+      <p>2.5 When submitting an offer via the Seller's online order form, the text of the contract is stored by the Seller after the contract has been concluded and transmitted to the Client in text form (e.g. e-mail, fax or letter) after the order has been sent. The Seller shall not make the contract text accessible beyond this.</p>
+      <p>2.6 Prior to submitting a binding order via the Seller's online order form, the Client may recognize input errors by reading attentively the information displayed on the screen. The Client can correct all the data entered via the usual keyboard and mouse function during the electronic ordering process, until he clicks the button finalizing the ordering process.</p>
+      <p>2.7 The German and the English language are exclusively available for the conclusion of the contract.</p>
+      <p>2.8 Order processing and contacting usually takes place via e-mail and automated order processing. It is the Client's responsibility to ensure that the e-mail address he provides for the order processing is accurate so that e-mails sent by the Seller can be received at this address.</p>
+
+      <h2>3) Right to Cancel</h2>
+      <p>3.1 Consumers are entitled to the right to cancel.</p>
+      <p>3.2 Detailed information about the right to cancel are provided in the Seller's instruction on cancellation.</p>
+      <p>3.3 The right to cancel does not apply to consumers, who are no nationals of a member state of the European Union at the time of concluding the contract und whose exclusive domicile and delivery address were located outside of the European Union at the time of concluding the contract.</p>
+
+      <h2>4) Prices and Payment Conditions</h2>
+      <p>4.1 Unless otherwise stated in the Seller's product description, prices indicated are total prices including the statutory sales tax. Delivery costs, where appropriate, will be indicated separately in the respective product description.</p>
+      <p>4.2 Payment can be made using one of the methods mentioned in the Seller's online shop.</p>
+      <p>4.3 In case of delivery to countries outside the European Union, additional costs may incur in individual cases for which the Seller is not responsible and which have to be borne by the Client.</p>
+      <p>4.4 If prepayment by bank transfer has been agreed upon, payment is due immediately after conclusion of the contract, unless the parties have arranged a later maturity date.</p>
+      <p>4.5 Credit card payment via Stripe: When selecting the payment method credit card, the invoice amount is due immediately upon conclusion of the contract. Payment by credit card is processed in cooperation with Stripe Payments Europe Ltd., 1 Grand Canal Street Lower, Grand Canal Dock, Dublin, Ireland.</p>
+      <p>4.6 When choosing a payment method offered via the payment service "Shopify Payments", payment will be processed via the payment service provider Shopify International Limited, Victoria Buildings, 2nd floor, 1-2 Haddington Road, Dublin 4, D04 XN32, Ireland.</p>
+      <p>4.7 If the payment method "immediate bank transfer" is selected, payment processing is carried out via the payment service provider SOFORT GmbH, Theresienhöhe 12, 80339 Munich.</p>
+
+      <h2>5) Shipment and Delivery Conditions</h2>
+      <p>5.1 If the Seller offers to ship the goods, delivery shall be made within the delivery area specified by the Seller to the delivery address specified by the Client unless otherwise agreed.</p>
+      <p>5.2 Should the assigned transport company return the goods to the Seller, because delivery to the Client was not possible, the Client bears the costs for the unsuccessful dispatch.</p>
+      <p>5.3 Personal collection is not possible for logistical reasons.</p>
+      <p>5.4 The Seller reserves the right to withdraw from the contract in the event of incorrect or improper self-supply.</p>
+
+      <h2>6) Reservation of Proprietary Rights</h2>
+      <p>If the Seller provides advance deliveries, he retains title of ownership to the delivered goods, until the purchase price owed has been paid in full.</p>
+
+      <h2>7) Warranty</h2>
+      <p>7.1 Unless otherwise stipulated, the provisions of the statutory liability for defects shall apply.</p>
+      <p>7.2 If the Client acts as trader: the Seller may choose the type of subsequent performance; for new goods, the limitation period for claims for defects shall be one year from delivery of the goods; for used goods, the rights and claims for defects are excluded; the limitation period shall not recommence if a replacement delivery is made within the scope of liability for defects.</p>
+      <p>7.3 The above-mentioned limitations of liability and shortening of the period of limitation do not apply to claims for damages and reimbursement of expenses of the Client, if the Seller has fraudulently concealed the defect, for goods which have been used in accordance with their customary use for a building and which have caused its defectiveness, or for any existing obligation of the Seller to provide updates for digital products.</p>
+      <p>7.4 Furthermore, for traders, the statutory limitation periods for any statutory right of recourse that may exist shall remain unaffected.</p>
+      <p>7.5 If the Client is a businessperson pursuant to section 1 of the German Commercial Code (HGB) he has the commercial duty to examine the goods and notify the Seller of defects pursuant to section 377 HGB.</p>
+      <p>7.6 If the Client acts as a consumer, the forwarding agent has to be immediately notified of any obvious transport damages and the Seller has to be informed accordingly.</p>
+
+      <h2>8) Special Conditions for Repair Services</h2>
+      <p>8.1 Repair services shall be provided at the Seller's place of business.</p>
+      <p>8.2 The Seller shall render his services at his discretion either himself or by qualified personnel selected by him.</p>
+      <p>8.3 The Client must provide the Seller with all information necessary for the repair of the item.</p>
+      <p>8.4 Unless otherwise agreed, the Client must send the item to be repaired to the Seller's place of business at his own expense and risk.</p>
+      <p>8.5 The return of the goods shall be at the Client's expense. The risk of accidental loss and accidental deterioration of the item passes to the Client when the item is handed over to a suitable transport person at the Seller's place of business.</p>
+      <p>8.6 The aforementioned regulations do not limit the Client's statutory rights in the event of the purchase of goods from the Seller.</p>
+      <p>8.7 The Seller shall be liable for defects in the repair service provided in accordance with the provisions regarding statutory liability for defects.</p>
+
+      <h2>9) Applicable Law</h2>
+      <p>9.1 The law of the Federal Republic of Germany shall apply to all legal relationships between the parties under exclusion of the laws governing the international purchase of movable goods. For consumers, this choice of law only applies to the extent that the granted protection is not withdrawn by mandatory provisions of the law of the country, in which the consumer has his habitual residence.</p>
+      <p>9.2 With regard to the statutory right of cancellation, this choice of law does not apply to consumers who do not belong to a member state of the European Union at the time of the conclusion of the contract and whose sole place of residence and delivery address are outside the European Union at the time of the conclusion of the contract.</p>
+
+      <h2>10) Alternative Dispute Resolution</h2>
+      <p>10.1 The EU Commission provides on its website the following link to the ODR platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>. This platform shall be a point of entry for out-of-court resolutions of disputes arising from online sales and service contracts concluded between consumers and traders.</p>
+      <p>10.2 The Seller is neither obliged nor prepared to attend a dispute settlement procedure before an alternative dispute resolution entity.</p>
+
     </div>
   </main>
+
   <footer class="footer">
-    <img src="../images/footer-monogram.avif" alt="EB" class="footer__monogram">
+    <div class="footer__monogram">
+      <img src="../images/footer-monogram.avif" alt="EB">
+    </div>
+    <div class="footer__info">
+      <div class="footer__info-left">
+        <p>ELISABETH BERTELMANN</p>
+        <p>RONSDORFER STRASSE 75</p>
+        <p>40233 DÜSSELDORF, GERMANY</p>
+        <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener" class="footer__instagram-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+      <div class="footer__info-right">
+        <p>&nbsp;</p>
+        <a href="tel:+4921198479792">PHONE: + 49 211 984 797 92</a>
+        <a href="tel:+4921198479796">FAX: +49 211 984 797 96</a>
+        <a href="mailto:info@elisabethbertelmann.com">INFO@ELISABETHBERTELMANN.COM</a>
+        <p>PRESS INQUIRIES:</p>
+        <a href="mailto:press@elisabethbertelmann.com">PRESS@ELISABETHBERTELMANN.COM</a>
+      </div>
+    </div>
     <div class="footer__legal">
       <a href="terms.html">Terms &amp; Conditions</a>
       <a href="privacy.html">Privacy Policy</a>
@@ -43,6 +228,7 @@
       <span>© 2026</span>
     </div>
   </footer>
+
   <script src="../js/nav.js"></script>
 </body>
 </html>

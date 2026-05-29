@@ -27,14 +27,13 @@
 }
 
 /* ============================================
-   CSS VARIABLES
+   VARIABLES
    ============================================ */
 
 :root {
   --black: #000000;
   --white: #FFFFFF;
   --nav-height: 68px;
-  --font-heading: 'WorkSans', sans-serif;
   --font-body: 'NeueHaasUnica', sans-serif;
   --letter-spacing-ui: 0.12em;
   --transition: 0.2s ease;
@@ -74,8 +73,7 @@ a {
 }
 
 /* ============================================
-   NAVIGATION
-   — transparent, sits over hero
+   NAVIGATION — always transparent
    ============================================ */
 
 .nav {
@@ -86,37 +84,22 @@ a {
   z-index: 100;
   height: var(--nav-height);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
-  padding: 0 40px;
-  /* transparent by default — sits over hero */
+  padding: 0 40px 16px;
   background: transparent;
-  transition: background var(--transition);
-}
-
-/* When scrolled past hero, add white bg */
-.nav.scrolled {
-  background: var(--white);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 .nav__logo img {
-  height: 13px;
+  height: 16px;
   width: auto;
-  /* logo is black — invert on transparent nav over white image */
-  filter: invert(0);
-  transition: filter var(--transition);
-}
-
-/* Invert logo to white when transparent over dark bg  */
-.nav.over-dark .nav__logo img {
-  filter: invert(1);
+  filter: brightness(0) invert(1);
 }
 
 .nav__links {
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 36px;
   list-style: none;
 }
 
@@ -126,13 +109,8 @@ a {
   font-size: 11px;
   letter-spacing: var(--letter-spacing-ui);
   text-transform: uppercase;
-  color: var(--black);
-  transition: opacity var(--transition);
-}
-
-/* White text on transparent nav over image */
-.nav.over-dark .nav__links a {
   color: var(--white);
+  transition: opacity var(--transition);
 }
 
 .nav__links a:hover {
@@ -154,12 +132,8 @@ a {
   display: block;
   width: 22px;
   height: 1px;
-  background: var(--black);
-  transition: transform var(--transition), opacity var(--transition);
-}
-
-.nav.over-dark .nav__hamburger span {
   background: var(--white);
+  transition: transform var(--transition), opacity var(--transition);
 }
 
 .nav__hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
@@ -170,9 +144,9 @@ a {
 .nav__mobile-menu {
   display: none;
   position: fixed;
-  top: var(--nav-height);
+  top: 0;
   left: 0; right: 0; bottom: 0;
-  background: var(--white);
+  background: var(--black);
   z-index: 99;
   flex-direction: column;
   align-items: center;
@@ -193,6 +167,7 @@ a {
   font-size: 13px;
   letter-spacing: var(--letter-spacing-ui);
   text-transform: uppercase;
+  color: var(--white);
 }
 
 /* ============================================
@@ -220,14 +195,14 @@ a {
   display: flex;
   justify-content: center;
   gap: 80px;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .footer__info-left,
 .footer__info-right {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
 .footer__info-left {
@@ -257,7 +232,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 16px;
+  margin-top: 14px;
   color: rgba(255,255,255,0.75);
   transition: color var(--transition);
 }
@@ -271,6 +246,7 @@ a {
   height: 28px;
 }
 
+/* Legal — no border */
 .footer__legal {
   display: flex;
   align-items: center;
@@ -280,8 +256,7 @@ a {
   font-size: 11px;
   letter-spacing: 0.06em;
   color: rgba(255,255,255,0.4);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 24px;
+  padding-top: 0;
 }
 
 .footer__legal a {
@@ -297,47 +272,80 @@ a {
    ============================================ */
 
 @media (max-width: 768px) {
-  .nav {
-    padding: 0 24px;
-  }
+  .nav { padding: 0 24px; }
+  .nav__links { display: none; }
+  .nav__hamburger { display: flex; }
+  .nav__mobile-menu { display: flex; }
 
-  .nav__links {
-    display: none;
-  }
+  .footer { padding: 64px 16px 40px; }
 
-  .nav__hamburger {
-    display: flex;
-  }
-
-  .nav__mobile-menu {
-    display: flex;
-  }
-
-  .footer {
-    padding: 64px 24px 40px;
+  .footer__monogram img {
+    width: clamp(200px, 60vw, 320px);
   }
 
   .footer__info {
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    align-items: flex-start;
   }
 
   .footer__info-left {
-    align-items: center;
-    text-align: center;
+    align-items: flex-end;
+    text-align: right;
   }
 
   .footer__info-right {
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 0;
+  }
+
+  .footer__info p,
+  .footer__info a {
+    font-size: 8px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    line-height: 1.6;
   }
 
   .footer__instagram-icon {
-    justify-content: center;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+
+  .footer__instagram-icon svg {
+    width: 20px;
+    height: 20px;
   }
 
   .footer__legal {
-    gap: 20px;
+    gap: 12px;
+    font-size: 9px;
+  }
+}
+
+/* ============================================
+   TABLET — Footer stays desktop layout
+   ============================================ */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+  .footer__info {
+    flex-direction: row;
+    gap: 80px;
+  }
+
+  .footer__info-left {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .footer__info-right {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .footer__instagram-icon {
+    justify-content: flex-end;
   }
 }
