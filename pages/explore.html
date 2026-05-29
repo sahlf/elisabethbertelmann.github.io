@@ -77,6 +77,89 @@
         height: auto;
       }
     }
+
+    /* ---- Hover overlay on image cells ---- */
+    .explore-grid__cell--img {
+      position: relative;
+    }
+
+    .explore-grid__cell--img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      transition: background 0.25s ease;
+      pointer-events: none;
+    }
+
+    .explore-grid__cell--img:hover::after {
+      background: rgba(0,0,0,0.2);
+    }
+
+    /* ---- Lightbox ---- */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: #000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox__img {
+      max-width: 100vw;
+      max-height: 100vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      user-select: none;
+    }
+
+    .lightbox__close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 48px;
+      height: 48px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 202;
+      transition: opacity 0.2s ease;
+    }
+
+    .lightbox__close:hover {
+      opacity: 0.7;
+    }
+
+    .lightbox__close svg {
+      width: 20px;
+      height: 20px;
+      stroke: #fff;
+      stroke-width: 2;
+    }
+
+    .lightbox__close {
+      mix-blend-mode: difference;
+    }
+
+    /* Wrapper to position X relative to image */
+    .lightbox__inner {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100vw;
+      max-height: 100vh;
+    }
   </style>
 </head>
 <body>
@@ -217,6 +300,120 @@
   </footer>
 
   <script src="../js/nav.js"></script>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image fullscreen">
+    <div class="lightbox__inner" id="lightbox-inner">
+      <button class="lightbox__close" id="lightbox-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="4" y1="4" x2="20" y2="20"/>
+          <line x1="20" y1="4" x2="4" y2="20"/>
+        </svg>
+      </button>
+      <img class="lightbox__img" id="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    // Collect all image srcs in order
+    const images = Array.from(document.querySelectorAll('.explore-grid__cell--img img'));
+    let currentIndex = 0;
+
+    // Touch swipe state
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    images.forEach((img, i) => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = i;
+        openLightbox(i);
+      });
+    });
+
+    function openLightbox(index) {
+      currentIndex = index;
+      lightboxImg.src = images[index].src;
+      lightboxImg.alt = images[index].alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.style.opacity = 0;
+      setTimeout(() => {
+        lightboxImg.src = images[currentIndex].src;
+        lightboxImg.style.opacity = 1;
+      }, 150);
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.style.opacity = 0;
+      setTimeout(() => {
+        lightboxImg.src = images[currentIndex].src;
+        lightboxImg.style.opacity = 1;
+      }, 150);
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+      lightboxImg.src = '';
+    }
+
+    // Close on X
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+
+    // Touch swipe
+    lightboxImg.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightboxImg.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        diff > 0 ? showNext() : showPrev();
+      }
+    }, { passive: true });
+
+    // Smooth opacity transition on image
+    lightboxImg.style.transition = 'opacity 0.15s ease';
+
+    // Trackpad horizontal swipe (desktop)
+    let swipeLocked = false;
+    let swipeResetTimer;
+    lightbox.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      if (!swipeLocked && Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 5) {
+        swipeLocked = true;
+        e.deltaX > 0 ? showNext() : showPrev();
+      }
+      // Unlock only after wheel events have stopped coming in
+      clearTimeout(swipeResetTimer);
+      swipeResetTimer = setTimeout(() => { swipeLocked = false; }, 500);
+    }, { passive: false });
+  </script>
 </body>
 </html><style>
 @media (max-width: 599px) {
