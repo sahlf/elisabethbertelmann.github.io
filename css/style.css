@@ -272,7 +272,7 @@ a {
    ============================================ */
 
 @media (max-width: 768px) {
-  .nav { padding: 0 24px; }
+  .nav { padding: 16px 24px; height: auto; align-items: center; }
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
   .nav__mobile-menu { display: flex; }

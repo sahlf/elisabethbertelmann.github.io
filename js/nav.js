@@ -1,29 +1,62 @@
 // ============================================
-// ELISABETH BERTELMANN — Navigation + Hero
+// ELISABETH BERTELMANN — Navigation
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  const nav = document.getElementById('nav');
   const hamburger = document.querySelector('.nav__hamburger');
   const mobileMenu = document.querySelector('.nav__mobile-menu');
-  const wordmark   = document.querySelector('.section-hero__wordmark');
-  const hero       = document.querySelector('.section-hero');
+  const wordmark = document.querySelector('.section-hero__wordmark');
+  const hero = document.querySelector('.section-hero');
 
   // ---- Wordmark fade on scroll ----
   if (wordmark && hero) {
     function updateWordmark() {
       const heroH = hero.offsetHeight;
       const scrollY = window.scrollY;
-      // Fade out over the first 40% of the hero height
       const fadeEnd = heroH * 0.4;
       const opacity = Math.max(0, 1 - scrollY / fadeEnd);
       wordmark.style.opacity = opacity;
-      // Also disable pointer events once invisible
-      wordmark.style.pointerEvents = opacity === 0 ? 'none' : 'none'; // always none
     }
-
     updateWordmark();
     window.addEventListener('scroll', updateWordmark, { passive: true });
+  }
+
+  // ---- Scroll hide/show nav (mobile only, non-homepage) ----
+  const isHomepage = document.querySelector('.section-hero') !== null;
+  let lastScrollY = 0;
+  let scrollTimer;
+
+  if (!isHomepage && window.innerWidth <= 768) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const isMobile = window.innerWidth <= 768;
+      if (!isMobile) return;
+
+      if (scrollY <= 10) {
+        // At top — transparent
+        nav.style.transform = 'translateY(0)';
+        nav.style.background = 'transparent';
+      } else if (scrollY > lastScrollY + 5) {
+        // Scrolling down — hide
+        nav.style.transform = 'translateY(-100%)';
+      } else if (scrollY < lastScrollY - 5) {
+        // Scrolling up — show with white bg
+        nav.style.transform = 'translateY(0)';
+        nav.style.background = '#fff';
+        nav.style.transition = 'transform 0.3s ease, background 0.3s ease';
+        // Check if back at top
+        if (scrollY <= 10) {
+          nav.style.background = 'transparent';
+        }
+      }
+
+      lastScrollY = scrollY;
+    }, { passive: true });
+
+    // Add transition to nav
+    nav.style.transition = 'transform 0.3s ease, background 0.3s ease';
   }
 
   // ---- Hamburger toggle ----

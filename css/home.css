@@ -106,6 +106,17 @@
     position: relative;
   }
 
+  /* Left col: anchor to right (inner) edge, right col: anchor to left (inner) edge */
+  .section-split__col:first-child img,
+  .section-split__col:first-child video {
+    object-position: right center;
+  }
+
+  .section-split__col:last-child img,
+  .section-split__col:last-child video {
+    object-position: left center;
+  }
+
   .section-full {
     height: 70vh;
   }

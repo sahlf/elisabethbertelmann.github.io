@@ -87,8 +87,21 @@
         grid-template-columns: 1fr;
       }
       .craft-hero__text {
+        position: relative;
+        height: auto;
+        min-height: 0;
         padding: calc(var(--nav-height) + 40px) 24px 48px;
         justify-content: flex-start;
+        overflow: visible;
+      }
+      .craft-hero__images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+      }
+      .craft-hero__images .img-cell {
+        aspect-ratio: 4 / 5;
+        width: 100%;
       }
     }
   </style>
