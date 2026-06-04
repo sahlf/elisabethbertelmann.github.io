@@ -17,6 +17,7 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      background: #000;
     }
 
     .contact-page__bg {
@@ -50,7 +51,7 @@
       font-size: clamp(16px, 1.8vw, 22px);
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #000;
+      color: #fff;
       margin-bottom: 48px;
       text-align: left;
     }
@@ -72,7 +73,7 @@
     .contact-form__field {
       display: flex;
       flex-direction: column;
-      border-bottom: 1px solid rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
     }
 
     .contact-form__field--full {
@@ -90,7 +91,7 @@
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #000;
+      color: #fff;
       padding: 20px 0;
       resize: none;
       -webkit-appearance: none;
@@ -98,7 +99,7 @@
 
     .contact-form__field input::placeholder,
     .contact-form__field textarea::placeholder {
-      color: rgba(0,0,0,0.4);
+      color: rgba(255,255,255,0.5);
     }
 
     .contact-form__field textarea {
@@ -117,7 +118,7 @@
       color: #000;
       background: transparent;
       border: none;
-      border-bottom: 1px solid rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
       padding: 0 0 4px 0;
       cursor: pointer;
       transition: opacity 0.2s ease;
@@ -147,42 +148,20 @@
         max-width: none;
         width: 100%;
       }
-      /* Frosted glass flush with nav on both sides */
-      .contact-form__wrapper {
-        margin-left: 0;
-        margin-right: 0;
-        width: 100%;
-      }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: 768px) {
       .contact-page__content {
         padding: calc(var(--nav-height) + 40px) 24px 60px 24px;
       }
-      /* Halve horizontal padding of frosted glass on mobile */
-      .contact-form__wrapper {
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-      /* Prevent headline from breaking mid-phrase */
-      .contact-page__title {
-        font-size: 13px;
-        white-space: nowrap;
-      }
     }
 
-    .contact-form__wrapper {
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(2px);
-      -webkit-backdrop-filter: blur(2px);
-      padding: 40px;
-    }
     </style>
 </head>
 <body>
 
   <!-- NAVIGATION -->
-  <nav class="nav nav--black" id="nav">
+  <nav class="nav" id="nav">
     <div class="nav__logo">
       <a href="../index.html">
         <img src="../images/logo.svg" alt="Elisabeth Bertelmann">
@@ -203,12 +182,7 @@
     <a href="book-appointment.html">Book Appointment</a>
   </div>
 
-  <!-- BACKGROUND -->
-  <div class="contact-page__bg">
-    <video autoplay muted loop playsinline>
-      <source src="../images/contact-bg.mp4" type="video/mp4">
-    </video>
-  </div>
+
 
   <!-- CONTENT -->
   <main class="contact-page">
@@ -241,7 +215,7 @@
           <textarea id="message" name="message" rows="5" placeholder="Message" required></textarea>
         </div>
 
-        <button type="submit" class="contact-form__submit">Submit</button>
+        <button type="submit" class="contact-form__submit" style="color:#fff !important;">Submit</button>
       </form>
       </div><!-- /.contact-form__wrapper -->
 
