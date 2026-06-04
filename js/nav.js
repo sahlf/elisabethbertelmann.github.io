@@ -13,11 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Wordmark fade on scroll ----
   if (wordmark && hero) {
     function updateWordmark() {
-      const heroH = hero.offsetHeight;
       const scrollY = window.scrollY;
-      const fadeEnd = heroH * 0.4;
-      const opacity = Math.max(0, 1 - scrollY / fadeEnd);
-      wordmark.style.opacity = opacity;
+      // Abrupt: hide immediately on any scroll
+      wordmark.style.opacity = scrollY > 10 ? 0 : 1;
+      wordmark.style.transition = 'none';
     }
     updateWordmark();
     window.addEventListener('scroll', updateWordmark, { passive: true });
@@ -66,6 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
       hamburger.setAttribute('aria-expanded', isOpen);
       mobileMenu.classList.toggle('open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
+      // Invert nav to white when menu is open
+      const nav = document.getElementById('nav');
+      if (isOpen) {
+        nav.style.setProperty('--nav-text', '#fff');
+        nav.querySelectorAll('.nav__logo img').forEach(el => el.style.filter = 'brightness(0) invert(1)');
+        nav.querySelectorAll('.nav__hamburger span').forEach(el => el.style.background = '#fff');
+      } else {
+        nav.querySelectorAll('.nav__logo img').forEach(el => el.style.filter = '');
+        nav.querySelectorAll('.nav__hamburger span').forEach(el => el.style.background = '');
+      }
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {

@@ -9,12 +9,16 @@
   <link rel="stylesheet" href="../css/style.css">
   <style>
     body { background: #000; }
-    .nav { background: transparent !important; }
 
     .craft-hero {
       display: grid;
-      grid-template-columns: 45fr 55fr;
+      grid-template-columns: 50fr 50fr;
       align-items: start;
+    }
+
+    .craft-hero__black {
+      background: #000;
+      min-height: 100%;
     }
 
     /* ---- LEFT: sticky, full viewport height, text at bottom ---- */
@@ -23,7 +27,7 @@
       top: 0;
       height: 100vh;
       background: #000;
-      padding: var(--nav-height) 64px 64px 40px;
+      padding: var(--nav-height) 48px 64px 80px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -73,17 +77,44 @@
     }
 
     /* ---- RESPONSIVE ---- */
-    @media (max-width: 900px) {
+    @media (min-width: 600px) and (max-width: 1024px) {
       .craft-hero {
         grid-template-columns: 1fr;
       }
       .craft-hero__text {
         position: relative;
         height: auto;
+        padding: calc(var(--nav-height) + 40px) 60px 48px 60px;
+        justify-content: flex-start;
+      }
+      .craft-hero__images {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+      }
+      .craft-hero__images .img-cell {
+        aspect-ratio: 4 / 5;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .craft-hero {
+        grid-template-columns: 1fr;
+      }
+      .craft-hero__black { display: none; }
+      .craft-hero__text {
+        position: relative;
+        height: auto;
         min-height: 0;
-        padding: calc(var(--nav-height) + 40px) 24px 48px;
+        padding: calc(var(--nav-height) + 40px) 60px 48px 60px;
         justify-content: flex-start;
         overflow: visible;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .craft-hero__text {
+        padding: calc(var(--nav-height) + 40px) 24px 48px 24px;
       }
     }
   </style>
@@ -95,9 +126,9 @@
       <a href="../index.html"><img src="../images/logo.svg" alt="Elisabeth Bertelmann"></a>
     </div>
     <ul class="nav__links">
-      <li><a href="book-appointment.html">Book Appointment</a></li>
       <li><a href="explore.html">Explore</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="book-appointment.html">Book Appointment</a></li>
     </ul>
     <button class="nav__hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -105,10 +136,10 @@
   </nav>
 
   <div class="nav__mobile-menu" role="dialog" aria-label="Navigation">
-    <a href="book-appointment.html">Book Appointment</a>
     <a href="explore.html">Explore</a>
+    <a href="contact.html">Contact Us</a>
     <a href="https://www.instagram.com/elisabethbertelmann/" target="_blank" rel="noopener">Instagram</a>
-    <a href="contact.html">Contact</a>
+    <a href="book-appointment.html">Book Appointment</a>
   </div>
 
   <main>
@@ -144,7 +175,7 @@
 
   <footer class="footer">
     <div class="footer__monogram">
-      <img src="../images/footer-monogram.avif" alt="EB">
+      <img src="../images/footer-monogram.jpg" alt="EB">
     </div>
     <div class="footer__info">
       <div class="footer__info-left">
@@ -160,7 +191,6 @@
         </a>
       </div>
       <div class="footer__info-right">
-        <p>&nbsp;</p>
         <a href="tel:+4921198479792">PHONE: + 49 211 984 797 92</a>
         <a href="tel:+4921198479796">FAX: +49 211 984 797 96</a>
         <a href="mailto:info@elisabethbertelmann.com">INFO@ELISABETHBERTELMANN.COM</a>

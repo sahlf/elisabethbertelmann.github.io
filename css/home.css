@@ -27,8 +27,8 @@
   position: fixed;
   top: 0;
   /* mirror nav padding exactly — change this one value and nav stays in sync */
-  left: 40px;
-  right: 40px;
+  left: 80px;
+  right: 80px;
   height: 100vh;
   display: flex;
   align-items: center;
@@ -151,8 +151,13 @@
   /* Wordmark: centered within 60vh hero, aligned with nav */
   .section-hero__wordmark {
     height: 60vh;
-    left: 30px;
-    right: 30px;
+    left: 60px;
+    right: 60px;
   }
 
 }
+
+/* Nav black on hero pages */
+.nav--black .nav__logo img { filter: none; }
+.nav--black .nav__links a { color: #000; }
+.nav--black .nav__hamburger span { background: #000; }
