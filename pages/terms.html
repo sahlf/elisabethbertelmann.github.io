@@ -88,13 +88,32 @@
       color: #fff;
     }
 
-    .toc {
-      margin-bottom: 48px;
+    /* IT-Recht Kanzlei injected content */
+    .itrk-legaltext h1, .itrk-legaltext h2, .itrk-legaltext h3 {
+      font-family: var(--font-body);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: #fff;
+      margin: 36px 0 12px;
+      font-size: 13px;
     }
-
-    .toc p {
-      margin-bottom: 0;
+    .itrk-legaltext p, .itrk-legaltext li {
+      font-family: var(--font-body);
+      font-size: 13px;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 12px;
     }
+    .itrk-legaltext ul, .itrk-legaltext ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .itrk-legaltext a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .itrk-legaltext a:hover { color: #fff; }
   @media (min-width: 600px) and (max-width: 1024px) {
     .legal-page {
       padding: calc(var(--nav-height) + 60px) 60px 80px;
@@ -135,10 +154,11 @@
 
       <h1>Terms &amp; Conditions</h1>
 
-      <p class="subtitle">General Terms and Conditions of Studio Elisabeth Bertelmann as of March 2023</p>
+      <div class="itrk-legaltext" data-itrk-legaltext-url="https://itrk.legal/8Eh.41.5DC-iframe.html"></div>
+      <script src="https://www.it-recht-kanzlei.de/js/itrk-legaltext.js"></script>
 
-      <p>General Terms and Conditions</p>
-
+      <!-- static content below kept for reference only, can be deleted -->
+      <!--
       <div class="toc">
         <p>Table of Contents</p>
         <ol>
@@ -217,6 +237,7 @@
       <h2>10) Alternative Dispute Resolution</h2>
       <p>10.1 The EU Commission provides on its website the following link to the ODR platform: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>. This platform shall be a point of entry for out-of-court resolutions of disputes arising from online sales and service contracts concluded between consumers and traders.</p>
       <p>10.2 The Seller is neither obliged nor prepared to attend a dispute settlement procedure before an alternative dispute resolution entity.</p>
+      -->
 
     </div>
   </main>
