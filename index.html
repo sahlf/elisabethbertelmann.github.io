@@ -66,12 +66,16 @@
 
     <!-- HERO — 100vh, image only (no wordmark inside) -->
     <section class="section-hero">
-      <img
-        class="section-media"
-        src="images/hero-eb.jpg"
-        alt="Elisabeth Bertelmann"
-        loading="eager"
-      >
+      <picture>
+        <!-- Mobile + Tablet portrait: single image -->
+        <source media="(max-width: 1024px) and (orientation: portrait)" srcset="images/hero-eb-mobile.jpg">
+        <img
+          class="section-media"
+          src="images/hero-eb.jpg"
+          alt="Elisabeth Bertelmann"
+          loading="eager"
+        >
+      </picture>
       <!--
         TO USE VIDEO INSTEAD:
         Remove the <img> above and uncomment:
