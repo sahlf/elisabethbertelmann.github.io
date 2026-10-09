@@ -28,6 +28,10 @@
   <style>
     body { background: #000; }
     .section-hero__wordmark img { filter: brightness(0) invert(1); }
+    @media (max-width: 599px),
+           (max-width: 1024px) and (orientation: portrait) {
+      .section-hero__wordmark { display: none; }
+    }
   </style>
 </head>
 <body>
