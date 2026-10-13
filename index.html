@@ -32,6 +32,15 @@
            (max-width: 1024px) and (orientation: portrait) {
       .section-hero__wordmark { display: none; }
     }
+    /* Mobile splits: 4:5 cells (like Explore), motif centered */
+    @media (max-width: 599px) {
+      .section-split { height: auto; }
+      .section-split__col { height: auto; aspect-ratio: 4 / 5; }
+      .section-split__col:first-child img,
+      .section-split__col:first-child video,
+      .section-split__col:last-child img,
+      .section-split__col:last-child video { object-position: center center; }
+    }
   </style>
 </head>
 <body>
